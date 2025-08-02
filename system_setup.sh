@@ -165,3 +165,9 @@ unzip terraform_1.12.2_linux_amd64.zip
 sudo mv terraform /usr/local/bin/
 echo "Installation Terraform complete."
 echo "You can run 'terraform -version' to confirm."
+
+# --- 10. Download Code from Github ---
+mkdir -p ~/labs
+cd ~/labs
+git clone https://github.com/johncui0505/ansible_terraform_demo
+cd ansible_terraform_demo
