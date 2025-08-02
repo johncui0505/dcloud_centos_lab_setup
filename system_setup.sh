@@ -147,5 +147,21 @@ else
     exit 1
 fi
 
+# --- 7. Pip upgrade ---
+/usr/local/bin/python${PYTHON_VERSION%.*} -m pip install --upgrade pip
+
 echo "Installation complete. Python ${PYTHON_VERSION} and Ansible are now installed."
 echo "You can run 'ansible --version' to confirm."
+
+# --- 8. Ansible collection install ---
+ansible-galaxy collection install cisco.aci
+ansible-galaxy collection install cisco.nd
+ansible-galaxy collection install cisco.mso
+ansible-galaxy collection install community.general
+
+# --- 9. Terraform Installation ---
+wget https://releases.hashicorp.com/terraform/1.12.2/terraform_1.12.2_linux_amd64.zip
+unzip terraform_1.12.2_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+echo "Installation Terraform complete."
+echo "You can run 'terraform -version' to confirm."
